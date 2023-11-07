@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ Auth module for tge API """
 from flask import request
+from typing import TypeVar, List
 
 
 class Auth:
