@@ -10,7 +10,7 @@ class BasicAuth(Auth):
             -> str:
         """Method extracts authorization header contents"""
         if authorization_header and isinstance(authorization_header, str) \
-                and authorization_header.startswith('Basic ')
+                and authorization_header.startswith('Basic '):
             return authorization_header[6:]
         else:
             return None
