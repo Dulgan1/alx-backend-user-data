@@ -37,10 +37,10 @@ class BasicAuth(Auth):
                 not isinstance(decoded_base64_authorization_header, str) or \
                 ":" not in decoded_base64_authorization_header:
             return None, None
-        email = decoded_base64_authorization_header.split(':')
-        password = email[-1]
-        del email[-1]
-        email = ':'.join(email)
+        password = decoded_base64_authorization_header.split(':')
+        email = password[0]
+        del password[0]
+        password = ':'.join(password)
         return email, password
 
     def user_object_from_credentials(
