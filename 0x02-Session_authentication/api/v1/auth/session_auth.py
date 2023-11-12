@@ -24,3 +24,9 @@ class SessionAuth(Auth):
         user_id = self.user_id_by_session_id[session_id]
 
         return user_id
+
+    def current_user(self, request=None):
+        """Overloads Authc.current_user, returns user with cookie value"""
+        session_id = self.session_cookie(request)
+        user_id = self.user_id_for_session_id(session_id)
+        return User.get(user_id)
