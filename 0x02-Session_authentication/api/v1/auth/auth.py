@@ -2,6 +2,7 @@
 """ Auth module for tge API """
 from flask import request
 from typing import TypeVar, List
+import os
 
 
 class Auth:
@@ -36,3 +37,10 @@ class Auth:
         Current user?
         """
         return None
+
+    def session_cookie(self, request=None):
+        """Returns session cookie"""
+        if request is None:
+            return None
+
+        return request.cookies.get(os.getenv('SESSION_NAME'))
