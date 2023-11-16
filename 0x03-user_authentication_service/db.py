@@ -36,3 +36,13 @@ class DB:
         self._session.add(new_user)
         self._session.commit()
         return new_user
+
+    def find_user_by(self, **kwargs) -> User:
+        """searches and returns user with passed data if exists"""
+        try:
+            user = self._session.query(User).filter_by(**kwargs).first()
+        except TypeError:
+            raise InvalidRequestError
+        if user is None:
+            raise NoResultFound
+        return user
