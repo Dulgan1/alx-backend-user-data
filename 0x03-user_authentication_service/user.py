@@ -7,6 +7,7 @@ Base = declarative_base()
 
 
 class User(Base):
+    """Implements the user"""
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String(250), nullable=False)
@@ -15,4 +16,5 @@ class User(Base):
     reset_token = Column(String(250), nullable=True)
 
     def __init__(self, *args, **kwargs):
+        """Init with super"""
         super.__init__(*args, kwargs)
