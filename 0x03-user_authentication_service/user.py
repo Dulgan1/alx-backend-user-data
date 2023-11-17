@@ -17,4 +17,4 @@ class User(Base):
 
     def __init__(self, *args, **kwargs):
         """Init with super"""
-        super.__init__(*args, kwargs)
+        super().__init__(*args, kwargs)
