@@ -14,7 +14,3 @@ class User(Base):
     hashed_password = Column(String(250), nullable=False)
     session_id = Column(String(250))
     reset_token = Column(String(250))
-
-    def __init__(self, *args, **kwargs):
-        """Init with super"""
-        super().__init__(*args, kwargs)
